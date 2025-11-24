@@ -1,0 +1,248 @@
+query,expected_id,grade_filter,subject_filter,chapter_filter,hit_rank,rr,hit@1,hit@3,hit@5,hit@10,best_id,best_score
+What is photosynthesis?,Grade_11___Biology___Chapter_11___p0002,,,,24921,4.0126800690180975e-05,0,0,0,0,Grade_11___Mathematics___Chapter_14___p0015,59.26351399799613
+Explain transpiration in plants.,Grade_7___Science___Chapter_7___p0015,,,,23197,4.3109022718454976e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,102.4164481459236
+What are the components of food?,Grade_6___Science___Chapter_3___p0008,,,,9402,0.00010636034886194426,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,89.01227219521411
+What is a balanced diet?,Grade_12___Home_Science___Chapter_2___p0024,,,,8725,0.00011461318051575932,0,0,0,0,Grade_12___Physics___Chapter_5___p0020,53.7304972515707
+How does digestion take place in the human body?,Grade_10___Science___Chapter_5___p0045,,,,3851,0.00025967281225655674,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,117.61132857783598
+What is the water cycle?,Grade_11___Geography___Chapter_12___p0000,,,,8098,0.00012348728081007656,0,0,0,0,Grade_11___Physics___Chapter_3___p0098,54.01032225224626
+What are the three states of matter?,Grade_9___Science___Chapter_1___p0007,,,,12490,8.00640512409928e-05,0,0,0,0,Grade_12___Mathematics___Chapter_7___p0009,103.09391544529944
+Define evaporation and condensation.,Grade_11___Geography___Chapter_10___p0001,,,,17681,5.655788699734178e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_3___p0002,113.8131933191733
+What is the role of stomata in plants?,Grade_9___Science___Chapter_6___p0021,,,,6116,0.00016350555918901244,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,93.7436362064326
+Explain the structure of a cell.,Grade_11___Biology___Chapter_8___p0004,,,,7261,0.0001377220768489189,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,86.80243634350936
+What is a food chain?,Grade_12___Biology___Chapter_12___p0016,,,,1080,0.000925925925925926,0,0,0,0,Grade_11___Sanskrit___Chapter_6___p0004,46.486873930650354
+Define habitat and adaptation.,Grade_6___Science___Chapter_2___p0025,,,,17688,5.653550429669833e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,88.99134760447356
+What is friction? Give examples.,Grade_11___Physics___Chapter_4___p0044,,,,495,0.00202020202020202,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,68.89746566798209
+Explain Newton’s first law of motion.,Grade_11___Physics___Chapter_4___p0055,,,,1631,0.0006131207847946045,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,96.83437451874029
+What is force? Name its types.,Grade_11___Biotechnology___Chapter_12___p0009,,,,17710,5.6465273856578205e-05,0,0,0,0,Grade_12___Mathematics___Chapter_7___p0009,58.989712396955845
+What is pressure? Explain with examples.,Grade_11___Accountancy___Chapter_6___p0047,,,,21200,4.7169811320754715e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,95.09912963870694
+Explain the process of respiration in plants.,Grade_7___Science___Chapter_10___p0019,,,,13148,7.6057195010648e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,126.5889394856109
+Define microorganisms and their uses.,Grade_12___Biotechnology___Chapter_6___p0031,,,,20194,4.951965930474398e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_3___p0002,88.81048845916823
+What is electric current?,Grade_10___Science___Chapter_11___p0000,,,,7960,0.0001256281407035176,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,58.622677154962005
+Explain the concept of magnetic field.,Grade_12___Physics___Chapter_4___p0005,,,,12603,7.934618741569468e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,93.96144923944391
+Define pollution and its types.,Grade_11___Business_Studies___Chapter_6___p0019,,,,10407,9.608917075045643e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,83.46911256100083
+What are renewable sources of energy?,Grade_10___Social_Science___Chapter_5___p0020,,,,21216,4.71342383107089e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,97.85012817158676
+What is soil erosion?,Grade_10___Social_Science___Chapter_1___p0019,,,,7371,0.000135666802333469,0,0,0,0,Grade_11___Sanskrit___Chapter_2___p0001,49.37124785265463
+Explain the greenhouse effect.,Grade_11___Geography___Chapter_11___p0013,,,,12379,8.078196946441554e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,80.2561864730819
+What is global warming?,Grade_11___Economics___Chapter_7___p0004,,,,19897,5.025883298989798e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,55.35888849214605
+What is the circulatory system?,Grade_11___Biology___Chapter_15___p0008,,,,16364,6.11097531165974e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_6___p0002,69.71057366634649
+Explain the process of reproduction in plants.,Grade_10___Science___Chapter_7___p0030,,,,2667,0.0003749531308586427,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,131.37415057795437
+Define work and energy.,Grade_11___Chemistry___Chapter_5___p0001,,,,8351,0.00011974613818704346,0,0,0,0,Grade_12___Mathematics___Chapter_2___p0001,68.9484931598625
+What is rusting?,Grade_7___Science___Chapter_4___p0013,,,,21292,4.6965996618448245e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,36.7290706872416
+What is the ozone layer?,Grade_10___Science___Chapter_13___p0011,,,,11047,9.052231375033946e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,56.784718384687665
+Explain the concept of biodiversity.,Grade_11___Geography___Chapter_14___p0004,,,,24714,4.046289552480375e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,89.4496940748306
+What is a constellation?,Grade_6___Science___Chapter_12___p0004,,,,15796,6.330716637123322e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,59.23812948289347
+Define natural and artificial satellites.,Grade_8___Science___Chapter_11___p0027,,,,25169,3.973141563033891e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,122.02196547440349
+Explain chemical reactions with examples.,Grade_11___Chemistry___Chapter_5___p0001,,,,6850,0.00014598540145985403,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,100.28863147478505
+What is the periodic table?,Grade_11___Chemistry___Chapter_3___p0052,,,,25202,3.9679390524561545e-05,0,0,0,0,Grade_12___Mathematics___Chapter_7___p0009,60.569387716056404
+"What are acids, bases and salts?",Grade_11___Chemistry___Chapter_6___p0091,,,,18782,5.324246619103397e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,73.09725415840154
+Explain metals and non-metals.,Grade_10___Science___Chapter_3___p0016,,,,8015,0.00012476606363069246,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,86.0351957521577
+What is electricity? Explain circuits.,Grade_10___Science___Chapter_11___p0042,,,,3370,0.0002967359050445104,0,0,0,0,Grade_12___Sanskrit___Chapter_6___p0002,80.69867674005445
+Define earthquakes and volcanoes.,Grade_11___Geography___Chapter_4___p0037,,,,7836,0.00012761613067891782,0,0,0,0,Grade_12___Sanskrit___Chapter_3___p0002,98.91951819147307
+State Pythagoras theorem.,Grade_10___Mathematics___Chapter_7___p0004,,,,764,0.0013089005235602095,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,64.6444904348378
+Explain the concept of rational and irrational numbers.,Grade_9___Mathematics___Chapter_1___p0030,,,,1135,0.000881057268722467,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,161.44013358564393
+What is a linear equation? Give examples.,Grade_12___Mathematics___Chapter_3___p0069,,,,3165,0.000315955766192733,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,99.09275432583102
+Define probability.,Grade_12___Mathematics___Chapter_7___p0003,,,,257,0.0038910505836575876,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,50.0956062149706
+What is a quadratic equation?,Grade_10___Mathematics___Chapter_4___p0005,,,,2658,0.0003762227238525207,0,0,0,0,Grade_12___Sanskrit___Chapter_3___p0002,75.13249963960367
+Explain arithmetic progression.,Grade_10___Mathematics___Chapter_5___p0005,,,,5885,0.0001699235344095157,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,80.42090821217066
+What is a geometric progression?,Grade_11___Mathematics___Chapter_8___p0008,,,,197,0.005076142131979695,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,74.35685025350362
+Define coordinate geometry.,Grade_11___Mathematics___Chapter_9___p0000,,,,14690,6.807351940095303e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,74.97307184244035
+State the distance formula.,Grade_10___Science___Chapter_9___p0019,,,,3564,0.0002805836139169473,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,72.8395798951368
+What is trigonometry?,Grade_10___Mathematics___Chapter_8___p0001,,,,19012,5.2598358931201344e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_6___p0002,50.88759202835771
+"Explain sine, cosine and tangent.",Grade_10___Mathematics___Chapter_8___p0003,,,,11227,8.907098957869422e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,88.07305592757001
+What is a polynomial?,Grade_9___Mathematics___Chapter_2___p0032,,,,1570,0.0006369426751592356,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,56.40765039532245
+Define LCM and HCF.,Grade_10___Mathematics___Chapter_1___p0009,,,,2703,0.0003699593044765076,0,0,0,0,Grade_12___Mathematics___Chapter_2___p0001,31.226701729358922
+Explain the concept of area of a circle.,Grade_11___Chemistry___Chapter_3___p0110,,,,5375,0.00018604651162790697,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,104.24420531304797
+What are real numbers?,Grade_11___Mathematics___Chapter_5___p0007,,,,10391,9.6237128284092e-05,0,0,0,0,Grade_9___Sanskrit___Chapter_5___p0000,60.667729186566575
+What is mensuration?,Grade_11___Knowledge_Traditions_and_Practices_of_India___Chapter_6___p0023,,,,6294,0.00015888147442008263,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,49.53273995734087
+Define matrices.,Grade_12___Mathematics___Chapter_3___p0013,,,,1793,0.0005577244841048522,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,36.135654901982114
+What is a determinant?,Grade_12___Mathematics___Chapter_4___p0009,,,,833,0.0012004801920768306,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,55.2470094596758
+Explain differentiation.,Grade_12___Business_Studies___Chapter_2___p0157,,,,12805,7.809449433814917e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,76.85094067722123
+What is integration?,Grade_12___Mathematics___Chapter_1___p0050,,,,70,0.014285714285714285,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,52.25598422195535
+Define statistics and its importance.,Grade_11___Economics___Chapter_1___p0032,,,,21338,4.686474833630143e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,90.43164833505536
+"What is mean, median and mode?",Grade_12___Geography___Chapter_2___p0040,,,,2938,0.0003403675970047651,0,0,0,0,Grade_12___Physics___Chapter_5___p0020,71.88323116680051
+Explain permutation and combination.,Grade_11___Biotechnology___Chapter_7___p0035,,,,13174,7.590708972218005e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_6___p0002,104.67830945319663
+Define sets and subsets.,Grade_11___Mathematics___Chapter_1___p0031,,,,20790,4.81000481000481e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,56.665295829965565
+What is a function?,Grade_12___Economics___Chapter_3___p0075,,,,15297,6.537229522128521e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,43.59540957967861
+Explain limit of a function.,Grade_11___Mathematics___Chapter_12___p0006,,,,1130,0.0008849557522123894,0,0,0,0,Grade_12___Sanskrit___Chapter_4___p0004,73.92302433664312
+What is a vector?,Grade_11___Physics___Chapter_3___p0009,,,,1025,0.000975609756097561,0,0,0,0,Grade_12___Sanskrit___Chapter_4___p0005,36.36618632514216
+Define linear programming.,Grade_12___Mathematics___Chapter_6___p0069,,,,12653,7.903264048051846e-05,0,0,0,0,Grade_9___Sanskrit___Chapter_5___p0000,74.56438940396589
+Explain Euclid’s geometry.,Grade_9___Mathematics___Chapter_5___p0006,,,,13681,7.309407207075506e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,62.15845443491397
+What is factorization?,Grade_12___Accountancy___Chapter_2___p0172,,,,15352,6.513809275664408e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_6___p0002,53.820262031152325
+Define similar triangles.,Grade_10___Mathematics___Chapter_6___p0007,,,,7863,0.00012717792191275595,0,0,0,0,Grade_9___Sanskrit___Chapter_5___p0000,65.33144831294733
+What is congruence of triangles?,Grade_9___Mathematics___Chapter_7___p0018,,,,24343,4.107957112927741e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,79.7485277709628
+Explain arithmetic mean.,Grade_11___Economics___Chapter_5___p0033,,,,6147,0.00016268098259313488,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,60.29839335350226
+What are complex numbers?,Grade_11___Mathematics___Chapter_4___p0001,,,,5679,0.00017608733932030288,0,0,0,0,Grade_11___Sanskrit___Chapter_5___p0000,64.23958416439395
+What are the main causes of the French Revolution?,Grade_9___Social_Science___Chapter_1___p0079,,,,21973,4.5510399126200334e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,120.21162410958534
+Explain nationalism in Europe.,Grade_10___Social_Science___Chapter_1___p0102,,,,21012,4.759185227489054e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,83.56297558542339
+What is democracy?,Grade_9___Social_Science___Chapter_1___p0106,,,,14389,6.949753283758427e-05,0,0,0,0,Grade_12___Mathematics___Chapter_6___p0061,40.59875756135108
+What are fundamental rights?,Grade_11___Political_Science___Chapter_2___p0033,,,,22118,4.5212044488651776e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,77.1519922018888
+Explain the role of the Parliament.,Grade_11___Political_Science___Chapter_5___p0051,,,,21106,4.73798919738463e-05,0,0,0,0,Grade_9___Sanskrit___Chapter_5___p0000,96.25383544298023
+What is the Constitution?,Grade_11___Political_Science___Chapter_9___p0005,,,,15793,6.331919204710948e-05,0,0,0,0,Grade_11___Mathematics___Chapter_14___p0015,59.44717200006542
+Define secularism.,Grade_11___Political_Science___Chapter_8___p0000,,,,21489,4.653543673507376e-05,0,0,0,0,Grade_9___Sanskrit___Chapter_5___p0000,43.17615762278198
+What is globalization?,Grade_12___Accountancy___Chapter_2___p0172,,,,15459,6.468723720809884e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_5___p0000,53.299251091791525
+Explain sustainable development.,Grade_11___Economics___Chapter_7___p0029,,,,7040,0.00014204545454545454,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,96.99244904195493
+What is GDP and how is it calculated?,Grade_12___Economics___Chapter_2___p0058,,,,23528,4.250255015300918e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,71.96163101399546
+What is poverty?,Grade_9___Social_Science___Chapter_1___p0099,,,,2498,0.00040032025620496394,0,0,0,0,Grade_11___Sanskrit___Chapter_6___p0004,39.25374257454294
+Explain inflation.,Grade_11___Economics___Chapter_7___p0049,,,,4453,0.00022456770716370987,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,55.50923048605113
+Define economic growth.,Grade_11___Economics___Chapter_6___p0031,,,,21703,4.607657927475464e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,56.39211009838285
+What is the Indian monsoon?,Grade_9___Social_Science___Chapter_4___p0017,,,,13353,7.488953793155097e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,63.4173650246495
+Explain the water resources of India.,Grade_11___Economics___Chapter_7___p0029,,,,10900,9.174311926605505e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,98.30146368126498
+What is soil profile?,Grade_11___Geography___Chapter_5___p0044,,,,19928,5.0180650341228424e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,52.18298653904663
+What is population density?,Grade_12___Biology___Chapter_11___p0006,,,,6502,0.00015379883112888343,0,0,0,0,Grade_12___Sanskrit___Chapter_6___p0002,71.71768818453585
+Explain the major physical divisions of India.,Grade_9___Social_Science___Chapter_2___p0001,,,,20902,4.78423117405033e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,114.76031428618893
+Define migration.,Grade_12___Geography___Chapter_9___p0011,,,,27478,3.6392750564087634e-05,0,0,0,0,Grade_12___Mathematics___Chapter_2___p0001,43.91589407466233
+What are minerals and energy resources?,Grade_10___Social_Science___Chapter_5___p0025,,,,7068,0.0001414827391058291,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,104.32119299379376
+Explain manufacturing industries.,Grade_12___Geography___Chapter_5___p0014,,,,5940,0.00016835016835016836,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,95.82569143914374
+What is federalism?,Grade_10___Social_Science___Chapter_2___p0100,,,,19402,5.1541078239356766e-05,0,0,0,0,Grade_9___Sanskrit___Chapter_5___p0000,43.20771756366992
+Explain the structure of Indian judiciary.,Grade_11___Political_Science___Chapter_6___p0058,,,,23912,4.182000669120107e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,115.05408344496426
+What is equality in democracy?,Grade_6___Social_Science___Chapter_10___p0000,,,,19243,5.1966949020423014e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_6___p0002,70.30124968358835
+What are human rights?,Grade_11___Political_Science___Chapter_5___p0004,,,,16412,6.093102607847916e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,59.29072270137494
+Explain the concept of social justice.,Grade_11___Political_Science___Chapter_4___p0000,,,,9259,0.00010800302408467438,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,92.69888675423259
+Define globalization in economics.,Grade_12___Geography___Chapter_1___p0013,,,,1951,0.0005125576627370579,0,0,0,0,Grade_11___Mathematics___Chapter_1___p0017,87.23486090837405
+What is rural development?,Grade_11___Economics___Chapter_5___p0000,,,,18983,5.267871253226571e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,73.72974508243814
+Explain the Green Revolution.,Grade_11___Economics___Chapter_2___p0038,,,,14294,6.995942353435007e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,80.44210365064862
+What are public sector and private sector?,Grade_11___Business_Studies___Chapter_3___p0041,,,,5304,0.0001885369532428356,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,111.48280919957158
+Define money and banking.,Grade_12___Economics___Chapter_3___p0000,,,,22096,4.525706010137581e-05,0,0,0,0,Grade_12___Mathematics___Chapter_2___p0001,68.05896127485306
+Explain climate change.,Grade_11___Geography___Chapter_11___p0012,,,,19950,5.012531328320802e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,58.58116112287976
+What is weather and climate?,Grade_7___Social_Science___Chapter_3___p0000,,,,17784,5.623031938821413e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,66.20890136452714
+Define natural vegetation.,Grade_11___Geography___Chapter_5___p0000,,,,9947,0.00010053282396702523,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,81.38803221400241
+Explain natural disasters.,Grade_11___Geography___Chapter_6___p0007,,,,26247,3.809959233436202e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,82.100262859048
+What is urbanization?,Grade_12___Accountancy___Chapter_2___p0172,,,,15280,6.544502617801048e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_6___p0002,53.24440688984588
+What is nationalism?,Grade_11___Political_Science___Chapter_7___p0003,,,,17388,5.7510927076144466e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,48.491541539744
+Explain the Non-Cooperation Movement.,Grade_12___History___Chapter_3___p0099,,,,18124,5.517545795630104e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,100.87468508651432
+What is the Quit India Movement?,Grade_10___Social_Science___Chapter_2___p0097,,,,21852,4.576240161083654e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,66.01007060434502
+Explain the Industrial Revolution.,Grade_11___Economics___Chapter_2___p0037,,,,24004,4.1659723379436764e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,96.68224695308348
+Define trade routes.,Grade_7___Social_Science___Chapter_8___p0016,,,,18082,5.530361685654242e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,59.78835276763342
+What is the Silk Route?,Grade_12___Geography___Chapter_8___p0002,,,,26996,3.7042524818491625e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,49.05660034638145
+What is colonialism?,Grade_9___Social_Science___Chapter_4___p0052,,,,18296,5.465675557498907e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,46.45516111623405
+What is the Indian National Congress?,Grade_12___English___Chapter_25___p0007,,,,14197,7.043741635556808e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,89.043714856831
+What is the central idea of the poem The Road Not Taken?,Grade_9___English___Chapter_1___p0024,,,,14359,6.964273278083432e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,126.89596925663905
+Explain the theme of A Letter to God.,Grade_10___English___Chapter_1___p0005,,,,10837,9.227646027498385e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,85.24625708937721
+What is the message of The Fun They Had?,Grade_9___English___Chapter_1___p0017,,,,25131,3.9791492578886634e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,77.75409925743206
+Summarize the story His First Flight.,Grade_10___English___Chapter_3___p0027,,,,1890,0.0005291005291005291,0,0,0,0,Grade_12___Sanskrit___Chapter_6___p0002,71.824575180409
+What is a noun? Give examples.,Grade_12___English___Chapter_24___p0016,,,,12970,7.710100231303006e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,67.65658809328247
+What is a verb?,Grade_12___English___Chapter_23___p0024,,,,10054,9.946290033817386e-05,0,0,0,0,Grade_12___Physics___Chapter_3___p0048,31.45618205152614
+What is the simple present tense?,Grade_9___English___Chapter_8___p0009,,,,14739,6.784720808738721e-05,0,0,0,0,Grade_11___Mathematics___Chapter_14___p0015,83.44974312307929
+Define active and passive voice.,Grade_8___English___Chapter_5___p0044,,,,9462,0.0001056859015007398,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,79.78240224476612
+What is direct and indirect speech?,Grade_9___English___Chapter_5___p0039,,,,370,0.002702702702702703,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,78.21498937029162
+Explain subject-verb agreement.,Grade_7___English___Chapter_3___p0044,,,,17605,5.680204487361545e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,84.61206730824043
+What are figures of speech?,Grade_12___English___Chapter_4___p0082,,,,8030,0.00012453300124533,0,0,0,0,Grade_10___Sanskrit___Chapter_7___p0002,64.26686596476921
+Explain metaphor and simile.,Grade_7___English___Chapter_1___p0021,,,,16770,5.9630292188431724e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,75.37836590103682
+What is an adjective?,Grade_12___English___Chapter_24___p0016,,,,11703,8.54481756814492e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,50.62831709547324
+Define adverb with examples.,Grade_7___English___Chapter_1___p0013,,,,25705,3.8902937171756467e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,69.73108640051741
+What is the difference between phrase and clause?,Grade_12___Computer_Science___Chapter_9___p0075,,,,1897,0.0005271481286241434,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,122.20201401636858
+Summarize the chapter Nelson Mandela: Long Walk to Freedom.,Grade_10___English___Chapter_2___p0046,,,,9084,0.00011008366358432408,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,148.1830534494288
+Explain the theme of Dust of Snow.,Grade_10___English___Chapter_1___p0018,,,,14465,6.91323885240235e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,79.48298527410755
+What is a biography?,Grade_12___Sociology___Chapter_7___p0013,,,,6257,0.000159821000479463,0,0,0,0,Grade_11___Mathematics___Chapter_2___p0006,48.27099563751445
+Define diary entry format.,Grade_7___English___Chapter_3___p0030,,,,6005,0.00016652789342214822,0,0,0,0,Grade_12___Mathematics___Chapter_2___p0001,79.9692259723259
+What is report writing?,Grade_10___English___Chapter_1___p0048,,,,16979,5.889628364450203e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,56.26212221823806
+Explain letter-writing format.,Grade_8___English___Chapter_1___p0053,,,,7372,0.00013564839934888768,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,85.55536085547214
+What is a narrative essay?,Grade_8___English___Chapter_1___p0019,,,,2667,0.0003749531308586427,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,64.46224069490071
+Define prepositions.,Grade_12___English___Chapter_22___p0021,,,,11150,8.968609865470852e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_3___p0002,57.09416775189368
+Explain modal verbs.,Grade_7___English___Chapter_1___p0037,,,,21221,4.712313274586494e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,56.0229153291167
+What is a pronoun?,Grade_12___English___Chapter_4___p0024,,,,11667,8.571183680466272e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_3___p0002,50.074465988401165
+Define conjunction.,Grade_10___Health_and_Physical_Education___Chapter_3___p0015,,,,11443,8.738967054094207e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0007,54.98930382399688
+What is comprehension?,Grade_11___English___Chapter_1___p0014,,,,15608,6.406970784213224e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,50.995903544263285
+What is tense? Name its types.,Grade_9___English___Chapter_8___p0009,,,,13413,7.455453664355477e-05,0,0,0,0,Grade_11___Mathematics___Chapter_14___p0015,66.11784356449385
+Explain dialogue writing.,Grade_8___Arts___Chapter_3___p0018,,,,11528,8.674531575294934e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,69.82643704280609
+What is a short story?,Grade_7___Vocational_Education___Chapter_5___p0009,,,,6314,0.00015837820715869496,0,0,0,0,Grade_11___Sanskrit___Chapter_6___p0004,50.16009633498668
+पर्यावरण संरक्षण के उपाय क्या हैं?,Grade_7___Hindi___Chapter_9___p0008,,,,629,0.001589825119236884,0,0,0,0,Grade_10___Sanskrit___Chapter_3___p0018,124.51378995669985
+जल चक्र क्या है?,Grade_7___Hindi___Chapter_4___p0004,,,,120,0.008333333333333333,0,0,0,0,Grade_6___Hindi___Chapter_2___p0007,55.67503935908622
+लोकतंत्र का क्या अर्थ है?,Grade_7___Sanskrit___Chapter_8___p0003,,,,254,0.003937007874015748,0,0,0,0,Grade_10___Sanskrit___Chapter_3___p0006,84.60278471017195
+संसाधन क्या होते हैं?,Grade_8___Hindi___Chapter_2___p0019,,,,221,0.004524886877828055,0,0,0,0,Grade_8___Hindi___Chapter_2___p0016,63.32017114834713
+प्रकृति संरक्षण क्यों आवश्यक है?,Grade_8___Hindi___Chapter_8___p0027,,,,709,0.0014104372355430183,0,0,0,0,Grade_6___Hindi___Chapter_13___p0007,115.98820050042835
+कर्मवाहक अव्यय क्या होता है?,Grade_10___Sanskrit___Chapter_11___p0001,,,,34,0.029411764705882353,0,0,0,0,Grade_8___Hindi___Chapter_2___p0012,106.53008395356974
+वर्णमाला कितने प्रकार की होती है?,Grade_7___Sanskrit___Chapter_7___p0009,,,,22,0.045454545454545456,0,0,0,0,Grade_8___Hindi___Chapter_9___p0001,111.79345457882582
+समास की परिभाषा लिखिए।,Grade_6___Hindi___Chapter_3___p0003,,,,25,0.04,0,0,0,0,Grade_6___Hindi___Chapter_6___p0005,75.32929845597208
+उपसर्ग और प्रत्यय क्या होते हैं?,Grade_10___Sanskrit___Chapter_6___p0000,,,,167,0.005988023952095809,0,0,0,0,Grade_10___Sanskrit___Chapter_1___p0001,116.6244364092135
+संधि क्या है?,Grade_7___Hindi___Chapter_7___p0010,,,,1,1.0,1,1,1,1,Grade_7___Hindi___Chapter_7___p0010,35.153007793834
+मुहावरा किसे कहते हैं?,Grade_10___Sanskrit___Chapter_1___p0003,,,,26,0.038461538461538464,0,0,0,0,Grade_8___Hindi___Chapter_9___p0010,72.45998081578583
+लोकोक्ति किसे कहते हैं?,Grade_10___Sanskrit___Chapter_8___p0000,,,,201,0.004975124378109453,0,0,0,0,Grade_8___Hindi___Chapter_4___p0011,73.24841010824278
+वर्ण-विच्छेद क्या है?,Grade_10___Sanskrit___Chapter_3___p0004,,,,1,1.0,1,1,1,1,Grade_10___Sanskrit___Chapter_3___p0004,69.57855069452341
+अनुच्छेद लेखन क्या है?,Grade_6___Hindi___Chapter_10___p0012,,,,9,0.1111111111111111,0,0,0,1,Grade_10___Sanskrit___Chapter_3___p0016,73.44872393521732
+सूचना लेखन क्या है?,Grade_6___Sanskrit___Chapter_10___p0001,,,,326,0.003067484662576687,0,0,0,0,Grade_6___Hindi___Chapter_10___p0007,62.584383015608395
+कविता 'दादाजी' का सार लिखिए।,Grade_6___Hindi___Chapter_7___p0002,,,,44,0.022727272727272728,0,0,0,0,Grade_6___Hindi___Chapter_8___p0003,83.82519290429465
+प्रकृति पर आधारित कविताएँ क्यों महत्वपूर्ण हैं?,Grade_10___Sanskrit___Chapter_5___p0001,,,,15,0.06666666666666667,0,0,0,0,Grade_10___Sanskrit___Chapter_3___p0001,165.0745395971375
+शब्द भेद कितने प्रकार के होते हैं?,Grade_6___Hindi___Chapter_11___p0003,,,,106,0.009433962264150943,0,0,0,0,Grade_6___Hindi___Chapter_12___p0002,111.02723635475863
+पर्यायवाची शब्द क्या हैं?,Grade_6___Hindi___Chapter_12___p0008,,,,530,0.0018867924528301887,0,0,0,0,Grade_10___Sanskrit___Chapter_1___p0011,79.56337864698256
+विलोम शब्द क्या होते हैं?,Grade_6___Hindi___Chapter_2___p0005,,,,42,0.023809523809523808,0,0,0,0,Grade_6___Hindi___Chapter_12___p0002,75.43843098582471
+वर्ण-विन्यास क्या है?,Grade_10___Sanskrit___Chapter_1___p0004,,,,2,0.5,0,1,1,1,Grade_10___Sanskrit___Chapter_1___p0011,70.44667088820196
+संधि-विच्छेद कैसे किया जाता है?,Grade_6___Hindi___Chapter_10___p0012,,,,1,1.0,1,1,1,1,Grade_6___Hindi___Chapter_10___p0012,85.96557679394803
+कहानी लेखन के तत्व क्या हैं?,Grade_6___Hindi___Chapter_4___p0007,,,,41,0.024390243902439025,0,0,0,0,Grade_6___Hindi___Chapter_13___p0002,90.5933643104104
+पत्र लेखन की विशेषताएँ लिखिए।,Grade_6___Hindi___Chapter_8___p0013,,,,74,0.013513513513513514,0,0,0,0,Grade_6___Hindi___Chapter_2___p0007,100.52658847673813
+वृत्तांत लेखन क्या है?,Grade_6___Sanskrit___Chapter_14___p0004,,,,249,0.004016064257028112,0,0,0,0,Grade_6___Hindi___Chapter_13___p0002,68.79985656285535
+सन्धिः किम्?,Grade_10___Sanskrit___Chapter_3___p0000,,,,376,0.0026595744680851063,0,0,0,0,Grade_7___Hindi___Chapter_8___p0021,35.12607194869882
+समासः किम्?,Grade_7___Hindi___Chapter_3___p0010,,,,431,0.002320185614849188,0,0,0,0,Grade_6___Hindi___Chapter_2___p0001,36.177332418728135
+वर्णाः कथं विभज्यन्ते?,Grade_8___Sanskrit___Chapter_13___p0001,,,,256,0.00390625,0,0,0,0,Grade_7___Sanskrit___Chapter_6___p0003,74.02719916712698
+लकाराः के के?,Grade_10___Sanskrit___Chapter_5___p0002,,,,1,1.0,1,1,1,1,Grade_10___Sanskrit___Chapter_5___p0002,36.70146757629288
+धातु: कः?,Grade_10___Sanskrit___Chapter_5___p0001,,,,1,1.0,1,1,1,1,Grade_10___Sanskrit___Chapter_5___p0001,21.59771888379292
+अव्ययम् किं?,Grade_10___Sanskrit___Chapter_1___p0072,,,,662,0.0015105740181268882,0,0,0,0,Grade_6___Sanskrit___Chapter_2___p0000,45.09113907447207
+शब्दरूपाणि किमर्थं पठ्यन्ते?,Grade_10___Sanskrit___Chapter_1___p0079,,,,23,0.043478260869565216,0,0,0,0,Grade_8___Sanskrit___Chapter_17___p0003,98.07912150209464
+धातुरूपाणि कथं प्रयुज्यन्ते?,Grade_9___Sanskrit___Chapter_8___p0009,,,,29,0.034482758620689655,0,0,0,0,Grade_10___Sanskrit___Chapter_8___p0014,95.67702628156327
+कारकाणि के?,Grade_6___Sanskrit___Chapter_8___p0002,,,,4,0.25,0,0,1,1,Grade_6___Hindi___Chapter_7___p0008,36.84907534761594
+विभक्तयः कथं प्रयुज्यन्ते?,Grade_9___Sanskrit___Chapter_8___p0009,,,,212,0.0047169811320754715,0,0,0,0,Grade_8___Sanskrit___Chapter_8___p0000,96.44200330336746
+अनुवादं कुरुत।,Grade_9___Sanskrit___Chapter_4___p0009,,,,318,0.0031446540880503146,0,0,0,0,Grade_6___Sanskrit___Chapter_2___p0000,51.79523370174366
+उपसर्गाणां प्रकारान् वर्णयत।,Grade_10___Sanskrit___Chapter_6___p0000,,,,452,0.0022123893805309734,0,0,0,0,Grade_10___Sanskrit___Chapter_3___p0018,110.58123121956513
+समासभेदान् लिखत।,Grade_10___Sanskrit___Chapter_3___p0005,,,,783,0.001277139208173691,0,0,0,0,Grade_6___Hindi___Chapter_12___p0009,61.059824168858015
+शब्दानां लिङ्गं कथं ज्ञायते?,Grade_8___Sanskrit___Chapter_6___p0005,,,,19,0.05263157894736842,0,0,0,0,Grade_8___Sanskrit___Chapter_5___p0006,82.06905276491767
+गद्यांशस्य सारांश: लिखत।,Grade_10___Sanskrit___Chapter_1___p0085,,,,167,0.005988023952095809,0,0,0,0,Grade_6___Hindi___Chapter_1___p0005,80.4041515948616
+कर्तृवाच्य- कर्मवाच्य भेदं स्पष्टयत।,Grade_10___Sanskrit___Chapter_11___p0002,,,,28,0.03571428571428571,0,0,0,0,Grade_8___Sanskrit___Chapter_8___p0001,136.4738957537691
+‘पर्यावरणम्’ विषय पर निबन्ध लिखत।,Grade_10___Sanskrit___Chapter_2___p0005,,,,393,0.002544529262086514,0,0,0,0,Grade_7___Sanskrit___Chapter_15___p0001,127.47770224537489
+संस्कृत-श्लोकानां अर्थं लिखत।,Grade_6___Sanskrit___Chapter_12___p0001,,,,323,0.0030959752321981426,0,0,0,0,Grade_6___Hindi___Chapter_13___p0006,94.67125498451037
+प्रयोगः किम्?,Grade_10___Sanskrit___Chapter_8___p0009,,,,5,0.2,0,0,1,1,Grade_10___Sanskrit___Chapter_11___p0004,41.84707188178587
+स्वराः व्यञ्जनानि च के?,Grade_6___Sanskrit___Chapter_1___p0000,,,,535,0.001869158878504673,0,0,0,0,Grade_7___Sanskrit___Chapter_9___p0000,76.53488670294074
+What is demand?,Grade_12___Economics___Chapter_2___p0137,,,,2707,0.0003694126339120798,0,0,0,0,Grade_12___Physics___Chapter_5___p0020,38.080691990087644
+Explain the law of supply.,Grade_12___Economics___Chapter_3___p0075,,,,15397,6.494771708774437e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,73.3535900817344
+What is elasticity of demand?,Grade_12___Economics___Chapter_2___p0123,,,,20324,4.92029128124385e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,64.63171802995502
+Define opportunity cost.,Grade_12___Economics___Chapter_4___p0052,,,,3565,0.00028050490883590464,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,65.71403683371598
+What is national income?,Grade_12___Economics___Chapter_2___p0068,,,,22012,4.5429765582409596e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,58.863220286935
+Explain consumer equilibrium.,Grade_12___Economics___Chapter_5___p0046,,,,2756,0.000362844702467344,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0004,78.0620672867709
+What is monetary policy?,Grade_12___Economics___Chapter_3___p0039,,,,5756,0.00017373175816539263,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,60.6851841037286
+Define fiscal policy.,Grade_12___Economics___Chapter_5___p0011,,,,14025,7.130124777183601e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,54.22539456969981
+What is inflation?,Grade_11___Economics___Chapter_7___p0049,,,,2533,0.00039478878799842083,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,44.42583125455387
+Explain market equilibrium.,Grade_12___Economics___Chapter_5___p0083,,,,9550,0.00010471204188481675,0,0,0,0,Grade_11___Sanskrit___Chapter_5___p0000,76.1081299823191
+What are production possibilities?,Grade_12___Economics___Chapter_1___p0027,,,,22314,4.481491440351349e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_6___p0002,85.98490640918911
+"Define primary, secondary and tertiary sectors.",Grade_6___Social_Science___Chapter_14___p0011,,,,23818,4.198505332101772e-05,0,0,0,0,Grade_9___Sanskrit___Chapter_2___p0002,128.77882128753146
+What is poverty line?,Grade_9___Social_Science___Chapter_3___p0023,,,,15020,6.657789613848202e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_6___p0002,50.22843208105859
+Explain the functions of money.,Grade_12___Economics___Chapter_3___p0039,,,,12977,7.70594128072744e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,82.99478460016363
+What is budget deficit?,Grade_12___Economics___Chapter_5___p0012,,,,18800,5.319148936170213e-05,0,0,0,0,Grade_11___Mathematics___Chapter_1___p0045,50.4576913114927
+What is human capital?,Grade_11___Economics___Chapter_4___p0002,,,,14331,6.977880120019538e-05,0,0,0,0,Grade_12___Physics___Chapter_5___p0020,56.25267540608621
+Define foreign exchange rate.,Grade_12___Economics___Chapter_6___p0012,,,,23539,4.248268830451591e-05,0,0,0,0,Grade_12___Mathematics___Chapter_2___p0001,87.40085747626534
+What are imports and exports?,Grade_12___Economics___Chapter_6___p0005,,,,11821,8.459521191100583e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,82.69149341552787
+Explain circular flow of income.,Grade_12___Economics___Chapter_2___p0068,,,,22258,4.492766645700422e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,92.4169406642163
+What is microeconomics and macroeconomics?,Grade_12___Economics___Chapter_1___p0035,,,,24027,4.161984434178216e-05,0,0,0,0,Grade_12___Chemistry___Chapter_1___p0078,112.24702842619075
+Define partnership and its essential features.,Grade_12___Accountancy___Chapter_1___p0001,,,,19014,5.259282633848743e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,134.60271704326996
+Explain double entry system.,Grade_11___Accountancy___Chapter_2___p0025,,,,19172,5.2159399123722096e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_6___p0002,74.60398781501122
+What is ledger posting?,Grade_11___Accountancy___Chapter_3___p0041,,,,8217,0.00012169891687963977,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,52.88863644902463
+Define journal and its types.,Grade_11___Accountancy___Chapter_4___p0061,,,,22787,4.388467108439022e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,82.0360414837607
+What is trial balance?,Grade_11___Accountancy___Chapter_6___p0047,,,,18997,5.263989050902774e-05,0,0,0,0,Grade_12___Physics___Chapter_3___p0048,53.86027569314585
+Explain capital and revenue expenditure.,Grade_11___Accountancy___Chapter_1___p0041,,,,6932,0.00014425851125216387,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,132.5317541745549
+Define depreciation.,Grade_12___Economics___Chapter_2___p0011,,,,16781,5.9591204338239674e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,55.89251611725264
+What is bank reconciliation statement?,Grade_11___Accountancy___Chapter_5___p0010,,,,22957,4.355969856688592e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,97.36775860459187
+Explain inventory valuation.,Grade_12___Accountancy___Chapter_2___p0013,,,,11482,8.709284096847239e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,89.60228949538467
+What is goodwill?,Grade_12___Accountancy___Chapter_2___p0073,,,,20108,4.973145016908693e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,39.866379278711385
+Define accounts receivable.,Grade_12___Accountancy___Chapter_4___p0027,,,,20406,4.9005194550622366e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,68.09394996654927
+What is cash flow statement?,Grade_12___Accountancy___Chapter_6___p0045,,,,20728,4.8243921265920496e-05,0,0,0,0,Grade_12___Mathematics___Chapter_7___p0009,64.02334605237273
+Explain non-profit organization accounting.,Grade_12___Accountancy___Chapter_5___p0001,,,,21633,4.622567373919475e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_3___p0002,125.95929440318977
+What is balance sheet?,Grade_11___Accountancy___Chapter_1___p0081,,,,14124,7.080147267063155e-05,0,0,0,0,Grade_11___Mathematics___Chapter_14___p0015,52.446076916490505
+Define accounting equation.,Grade_11___Accountancy___Chapter_1___p0033,,,,19921,5.019828321871392e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_3___p0002,79.86422237445083
+What is management?,Grade_12___Business_Studies___Chapter_1___p0050,,,,14357,6.965243435258063e-05,0,0,0,0,Grade_12___Physics___Chapter_5___p0020,50.14927216908816
+Explain the functions of management.,Grade_12___Business_Studies___Chapter_1___p0052,,,,13847,7.221780891167762e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,97.24960502400856
+What is planning?,Grade_12___Business_Studies___Chapter_4___p0028,,,,16746,5.9715753015645525e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,45.73129881059202
+Define business environment.,Grade_11___Business_Studies___Chapter_6___p0000,,,,15388,6.498570314530803e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_3___p0002,74.54944044110668
+What is delegation?,Grade_12___Business_Studies___Chapter_5___p0029,,,,9708,0.00010300782859497322,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,46.58750712361401
+Explain leadership styles.,Grade_12___Business_Studies___Chapter_7___p0032,,,,5080,0.0001968503937007874,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,69.74696378436727
+What is motivation?,Grade_11___Psychology___Chapter_8___p0001,,,,25712,3.8892345986309894e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_6___p0004,44.5917433886779
+Define communication.,Grade_11___Home_Science___Chapter_6___p0000,,,,26374,3.791612952149845e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_3___p0002,54.864677267702795
+What is organizing?,Grade_9___ICT___Chapter_4___p0007,,,,10872,9.19793966151582e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,47.351099049817535
+Explain staffing.,Grade_12___Business_Studies___Chapter_6___p0045,,,,20043,4.9892730629147335e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,48.56275935293621
+What is financial management?,Grade_11___Home_Science___Chapter_3___p0031,,,,16284,6.140997297961189e-05,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,74.68322519743043
+Define marketing mix.,Grade_12___Business_Studies___Chapter_2___p0150,,,,23038,4.340654570709263e-05,0,0,0,0,Grade_12___Mathematics___Chapter_2___p0001,53.453395631397996
+What is consumer protection?,Grade_12___Business_Studies___Chapter_3___p0057,,,,9647,0.0001036591686534674,0,0,0,0,Grade_12___Sanskrit___Chapter_6___p0002,69.10669742266033
+Define entrepreneurship.,Grade_11___Business_Studies___Chapter_9___p0014,,,,11606,8.616232982939858e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,75.79833605754484
+What is social responsibility of business?,Grade_11___Business_Studies___Chapter_6___p0035,,,,14491,6.900835001035126e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,93.81879942026475
+Explain types of companies.,Grade_12___Accountancy___Chapter_1___p0085,,,,15690,6.373486297004461e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_8___p0003,74.57346554866137
+What is insurance?,Grade_11___Business_Studies___Chapter_4___p0024,,,,7137,0.00014011489421325487,0,0,0,0,Grade_11___Sanskrit___Chapter_8___p0001,43.24103210751166
+Define e-business.,Grade_11___Business_Studies___Chapter_1___p0041,,,,20257,4.936565137976995e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_3___p0002,40.265252919080986
+What is global trade?,Grade_12___Geography___Chapter_8___p0009,,,,5564,0.00017972681524083394,0,0,0,0,Grade_9___Sanskrit___Chapter_5___p0000,50.11900286527016
+Define business ethics.,Grade_11___Business_Studies___Chapter_6___p0029,,,,16251,6.153467478924374e-05,0,0,0,0,Grade_12___Sanskrit___Chapter_2___p0006,43.4572491225424

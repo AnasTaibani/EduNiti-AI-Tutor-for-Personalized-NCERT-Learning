@@ -1,0 +1,10 @@
+=== BM25 Evaluation Summary (Gold Set) ===
+Num queries: 247
+Recall@1  : 0.020
+Recall@3  : 0.024
+Recall@5  : 0.032
+Recall@10 : 0.036
+MRR       : 0.027
+
+Acceptance criterion: Recall@5 >= 0.90
+Result: Recall@5 = 0.032 → FAIL ❌
