@@ -1,0 +1,34 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual envs
+.venv/
+dpr_venv/
+venv/
+
+# Data / artifacts (regenerate when needed)
+NCERT_raw/
+NCERT_cleaned/
+NCERT_paragraphs/
+NCERT_passages/
+NCERT_passages_hybrid/
+NCERT_cleaned_cleaned/
+NCERT_processed/
+NCERT_text/
+
+# Large model & index files
+*.npy
+*.npz
+*.pkl
+*.faiss
+*.index
+
+Retrieval/dpr/models/
+Retrieval/dpr/indexes/
+Retrieval/dpr/passages_dpr_embs.npy
+
+# Logs
+*.log
