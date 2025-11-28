@@ -1,29 +1,18 @@
 #!/usr/bin/env python3
 """
-hybrid_retrieval_demo.py
+hybrid_retrieval_ft_demo.py
 
-Task D (part 2) — Hybrid retrieval: BM25 + DPR (FAISS).
+Demo: Hybrid retrieval (BM25 + fine-tuned DPR) over NCERT passages.
 
 Uses:
-  - BM25 index over passages (lexical relevance)
-  - DPR embeddings + FAISS index (semantic relevance)
-Combines them into a hybrid score for better retrieval.
+  - BM25 index over NCERT_passages_hybrid (pickle)
+  - Fine-tuned DPR model (SentenceTransformers)
+  - Fine-tuned DPR FAISS HNSW index
 
-Inputs:
-  - Preprocessing/NCERT_passages_hybrid/passages.jsonl
-  - Preprocessing/NCERT_passages_hybrid/bm25.pkl
-  - Retrieval/dpr/passages_dpr_embs.npy
-  - Retrieval/dpr/passages_dpr_meta.json
-  - Retrieval/dpr/indexes/dpr_faiss_flat.index  (or ivf / hnsw)
-
-Usage (from project root):
-  cd D:\eduniti-majorProject
-
-  # Single query
-  python Retrieval\\hybrid\\hybrid_retrieval_demo.py --query "What is photosynthesis?"
-
-  # Interactive
-  python Retrieval\\hybrid\\hybrid_retrieval_demo.py --interactive
+Outputs:
+  - Top BM25 hits
+  - Top DPR hits
+  - Top HYBRID hits (combined score)
 """
 
 import argparse
@@ -32,281 +21,325 @@ import pickle
 import re
 from pathlib import Path
 
-import numpy as np
-from rank_bm25 import BM25Okapi
-from sentence_transformers import SentenceTransformer
 import faiss
+import numpy as np
+from sentence_transformers import SentenceTransformer
 
-
-# ---------- CONFIG ----------
+# ---------- PATHS ----------
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-PASSAGES_JSONL = PROJECT_ROOT / "Preprocessing" / "NCERT_passages_hybrid" / "passages.jsonl"
+# BM25 built on chunks from NCERT_passages_hybrid
 BM25_PKL = PROJECT_ROOT / "Preprocessing" / "NCERT_passages_hybrid" / "bm25.pkl"
+PASSAGES_JSONL = PROJECT_ROOT / "Preprocessing" / "NCERT_passages_hybrid" / "passages.jsonl"
 
-DPR_EMB_PATH = PROJECT_ROOT / "Retrieval" / "dpr" / "passages_dpr_embs.npy"
+# Fine-tuned DPR model + FAISS index + meta
+DPR_MODEL_DIR = PROJECT_ROOT / "Retrieval" / "dpr" / "models" / "ncert-dpr-v1"
+DPR_INDEX_PATH = PROJECT_ROOT / "Retrieval" / "dpr" / "indexes_ft" / "dpr_ft_faiss_hnsw.index"
 DPR_META_PATH = PROJECT_ROOT / "Retrieval" / "dpr" / "passages_dpr_meta.json"
 
-# pick which FAISS index to use (flat / ivf / hnsw)
-DPR_FAISS_FLAT   = PROJECT_ROOT / "Retrieval" / "dpr" / "indexes" / "dpr_faiss_flat.index"
-DPR_FAISS_IVF    = PROJECT_ROOT / "Retrieval" / "dpr" / "indexes" / "dpr_faiss_ivf.index"
-DPR_FAISS_HNSW   = PROJECT_ROOT / "Retrieval" / "dpr" / "indexes" / "dpr_faiss_hnsw.index"
 
-DPR_MODEL_NAME = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
-
-TOPK_BM25 = 20
-TOPK_DPR = 20
-TOPK_HYBRID = 10
-ALPHA_BM25 = 0.5  # weight for BM25 vs DPR in hybrid score
-
-
-# ---------- HELPERS ----------
-
+# ---------- simple tokeniser ----------
 def simple_tokenize(text: str):
-    text = (text or "").lower()
-    return re.findall(r"\w+", text)
+    return re.findall(r"\w+", (text or "").lower())
 
 
-def load_passages_map(jsonl_path: Path):
+# ---------- flexible BM25 loader ----------
+def load_bm25(path: Path):
     """
-    Build a dict id -> record (for showing snippets).
+    Try to support multiple file formats for bm25.pkl.
+
+    For your current project, the important one is:
+      {"bm25": ..., "tokenized_corpus": ..., "ids": [...]}
+
+    We then reconstruct `records` by reading passages.jsonl and
+    matching by id.
     """
-    id2rec = {}
-    with jsonl_path.open("r", encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if not line:
-                continue
-            try:
-                obj = json.loads(line)
-            except Exception:
-                continue
-            pid = obj.get("id")
-            if pid:
-                id2rec[pid] = obj
-    return id2rec
+    print(f"🔹 Loading BM25 from: {path}")
+    with path.open("rb") as f:
+        obj = pickle.load(f)
+
+    from rank_bm25 import BM25Okapi  # ensure installed in your env
+
+    bm25 = None
+    corpus_tokens = None
+    records = None
+
+    # --- Case 1: tuple formats (older style, just in case) ---
+    if isinstance(obj, tuple):
+        if len(obj) == 3:
+            bm25, corpus_tokens, records = obj
+            print("   → Detected tuple format: (bm25, corpus_tokens, records)")
+        elif len(obj) == 2:
+            bm25, records = obj
+            print("   → Detected tuple format: (bm25, records); rebuilding corpus_tokens from records['text']")
+            corpus_tokens = []
+            for r in records:
+                txt = r.get("text", "") or ""
+                corpus_tokens.append(simple_tokenize(txt))
+        else:
+            print(f"   ⚠️ Unexpected tuple length: {len(obj)}; treating as records list and rebuilding.")
+            records = list(obj)
+            corpus_tokens = []
+            for r in records:
+                txt = r.get("text", "") or ""
+                corpus_tokens.append(simple_tokenize(txt))
+            bm25 = BM25Okapi(corpus_tokens)
+
+    # --- Case 2: dict formats (your current one) ---
+    elif isinstance(obj, dict):
+        keys = set(obj.keys())
+        print(f"   → Detected dict format with keys: {keys}")
+
+        # 🔴 Your current format: {'bm25', 'tokenized_corpus', 'ids'}
+        if {"bm25", "tokenized_corpus", "ids"} <= keys:
+            print("   → Dict with bm25 + tokenized_corpus + ids; rebuilding records from passages.jsonl")
+            bm25 = obj["bm25"]
+            corpus_tokens = obj["tokenized_corpus"]
+            ids = obj["ids"]
+
+            if not PASSAGES_JSONL.exists():
+                raise FileNotFoundError(f"Expected passages JSONL at {PASSAGES_JSONL}, but it does not exist.")
+
+            # Load all passage records into a dict by id
+            id2record = {}
+            with PASSAGES_JSONL.open("r", encoding="utf-8") as pf:
+                for line in pf:
+                    line = line.strip()
+                    if not line:
+                        continue
+                    rec = json.loads(line)
+                    pid = rec.get("id")
+                    if pid:
+                        id2record[pid] = rec
+
+            # Build records list in the same order as ids / corpus_tokens
+            records = []
+            missing = 0
+            for pid in ids:
+                rec = id2record.get(pid)
+                if rec is None:
+                    # If somehow not in JSONL, create a stub
+                    missing += 1
+                    rec = {"id": pid, "text": "", "grade": None, "subject": None, "chapter": None}
+                records.append(rec)
+
+            if missing > 0:
+                print(f"   ⚠️ Warning: {missing} ids not found in {PASSAGES_JSONL}, filled with empty stubs.")
+
+        # Other possible dict layouts
+        elif {"bm25", "corpus_tokens", "records"} <= keys:
+            bm25 = obj["bm25"]
+            corpus_tokens = obj["corpus_tokens"]
+            records = obj["records"]
+        elif "records" in obj and "bm25" in obj:
+            bm25 = obj["bm25"]
+            records = obj["records"]
+            print("   → Dict with bm25 + records; rebuilding corpus_tokens from records['text']")
+            corpus_tokens = []
+            for r in records:
+                txt = r.get("text", "") or ""
+                corpus_tokens.append(simple_tokenize(txt))
+        elif "records" in obj:
+            records = obj["records"]
+            print("   → Dict with only records; rebuilding BM25 from records['text']")
+            corpus_tokens = []
+            for r in records:
+                txt = r.get("text", "") or ""
+                corpus_tokens.append(simple_tokenize(txt))
+            bm25 = BM25Okapi(corpus_tokens)
+        else:
+            print("   ⚠️ Dict format not recognised; treating values as records list and rebuilding.")
+            for v in obj.values():
+                if isinstance(v, list) and v and isinstance(v[0], dict):
+                    records = v
+                    break
+            if records is None:
+                raise ValueError("Could not locate records list in BM25 dict object.")
+            corpus_tokens = []
+            for r in records:
+                txt = r.get("text", "") or ""
+                corpus_tokens.append(simple_tokenize(txt))
+            bm25 = BM25Okapi(corpus_tokens)
+
+    # --- Case 3: list -> treat as records and rebuild ---
+    elif isinstance(obj, list) and obj and isinstance(obj[0], dict):
+        print("   → Detected list[dict]; treating as records and rebuilding BM25")
+        records = obj
+        corpus_tokens = []
+        for r in records:
+            txt = r.get("text", "") or ""
+            corpus_tokens.append(simple_tokenize(txt))
+        bm25 = BM25Okapi(corpus_tokens)
+    else:
+        raise ValueError(f"Unsupported bm25.pkl object type: {type(obj)}")
+
+    if bm25 is None or corpus_tokens is None or records is None:
+        raise ValueError("Failed to reconstruct BM25, corpus_tokens or records from pickle.")
+
+    print(f"   → BM25 corpus size: {len(corpus_tokens)} passages")
+    id2rec = {r["id"]: r for r in records}
+    return bm25, corpus_tokens, records, id2rec
 
 
-def load_bm25(bm25_path: Path):
-    with bm25_path.open("rb") as f:
-        data = pickle.load(f)
-    ids = data["ids"]
-    tokenized_corpus = data["tokenized_corpus"]
-    bm25 = data["bm25"]
-    return ids, tokenized_corpus, bm25
-
-
-def load_dpr():
-    embs = np.load(DPR_EMB_PATH)
-    with DPR_META_PATH.open("r", encoding="utf-8") as f:
-        meta = json.load(f)
-    # meta[i]["idx"] should equal i, but we map explicitly anyway
-    id_by_idx = {m["idx"]: m["id"] for m in meta}
-    return embs, meta, id_by_idx
-
-
-def load_faiss_index(index_path: Path):
-    index = faiss.read_index(str(index_path))
-    return index
-
-
-def build_query_encoder():
-    model = SentenceTransformer(DPR_MODEL_NAME)
-    return model
-
-
-def normalize_scores(scores: np.ndarray):
-    """
-    Min-max normalize to [0, 1]. If constant, return zeros.
-    """
-    s_min = float(scores.min())
-    s_max = float(scores.max())
-    if s_max - s_min < 1e-8:
-        return np.zeros_like(scores, dtype="float32")
-    return ((scores - s_min) / (s_max - s_min)).astype("float32")
-
-
-def bm25_search(query: str, ids, bm25: BM25Okapi, topk: int):
+def bm25_search(query: str, bm25, corpus_tokens, records, topk: int = 5):
     q_tokens = simple_tokenize(query)
-    scores = np.array(bm25.get_scores(q_tokens), dtype="float32")
-    # sort descending
-    top_idx = np.argsort(-scores)[:topk]
+    scores = bm25.get_scores(q_tokens)  # numpy array
+    idxs = np.argsort(scores)[::-1][:topk]
+
     results = []
-    for rank, idx in enumerate(top_idx, start=1):
+    for rank, i in enumerate(idxs, start=1):
+        rec = records[i]
+        score = float(scores[i])
         results.append({
             "rank": rank,
-            "id": ids[idx],
-            "score": float(scores[idx]),
-            "idx": int(idx),
+            "id": rec["id"],
+            "grade": rec.get("grade"),
+            "subject": rec.get("subject"),
+            "chapter": rec.get("chapter"),
+            "score": score,
+            "text": rec.get("text", "")[:400]
         })
-    return results, scores
+    return results
 
 
-def dpr_search(query: str, encoder, faiss_index, topk: int):
-    q_emb = encoder.encode([query], convert_to_numpy=True, show_progress_bar=False).astype("float32")
-    # if index is IP with normalized vectors, distances are similarities
-    D, I = faiss_index.search(q_emb, topk)
+# ---------- load DPR (fine-tuned) ----------
+def load_ft_dpr(model_dir: Path, index_path: Path, meta_path: Path):
+    print(f"🔹 Loading fine-tuned DPR model from: {model_dir}")
+    model = SentenceTransformer(str(model_dir))
+
+    print(f"🔹 Loading DPR FAISS HNSW index from: {index_path}")
+    index = faiss.read_index(str(index_path))
+
+    print(f"🔹 Loading DPR passage meta from: {meta_path}")
+    with meta_path.open("r", encoding="utf-8") as f:
+        meta = json.load(f)
+    id2meta = {m["id"]: m for m in meta}
+    print(f"   → Loaded meta for {len(meta)} passages.")
+
+    return model, index, id2meta
+
+
+def dpr_search(query: str, model, index, id2meta, id2rec_bm25, topk: int = 5):
+    q_emb = model.encode([query], convert_to_numpy=True)
+    q_emb = q_emb.astype("float32")
+    faiss.normalize_L2(q_emb)
+
+    D, I = index.search(q_emb, topk)
     D = D[0]
     I = I[0]
+
     results = []
+    meta_keys = list(id2meta.keys())
     for rank, (dist, idx) in enumerate(zip(D, I), start=1):
-        if idx < 0:
+        if idx < 0 or idx >= len(meta_keys):
             continue
+        pid = meta_keys[idx]
+        m = id2meta[pid]
+        rec = id2rec_bm25.get(pid, {})
+        text = rec.get("text", "")[:400]
+
         results.append({
             "rank": rank,
-            "idx": int(idx),
-            "score": float(dist),
-        })
-    return results, D
-
-
-def hybrid_search(query: str,
-                  ids,
-                  bm25: BM25Okapi,
-                  encoder,
-                  faiss_index,
-                  id_by_idx,
-                  alpha_bm25: float = ALPHA_BM25,
-                  topk_bm25: int = TOPK_BM25,
-                  topk_dpr: int = TOPK_DPR,
-                  topk_hybrid: int = TOPK_HYBRID):
-    # BM25 and DPR search
-    bm25_results, bm25_scores = bm25_search(query, ids, bm25, topk_bm25)
-    dpr_results, dpr_scores_full = dpr_search(query, encoder, faiss_index, topk_dpr)
-
-    # Collect indices used
-    bm25_indices = [r["idx"] for r in bm25_results]
-    dpr_indices = [r["idx"] for r in dpr_results]
-
-    # Normalize scores on subsets to combine
-    bm25_sub_scores = np.array([bm25_scores[i] for i in bm25_indices], dtype="float32")
-    dpr_sub_scores = np.array([r["score"] for r in dpr_results], dtype="float32")
-
-    bm25_norm = normalize_scores(bm25_sub_scores)
-    dpr_norm = normalize_scores(dpr_sub_scores)
-
-    # Map idx -> normalized scores
-    bm25_norm_map = {idx: float(s) for idx, s in zip(bm25_indices, bm25_norm)}
-    dpr_norm_map = {idx: float(s) for idx, s in zip(dpr_indices, dpr_norm)}
-
-    # Union of candidate indices
-    candidate_indices = sorted(set(bm25_indices) | set(dpr_indices))
-
-    hybrid_results = []
-    for idx in candidate_indices:
-        bm25_s = bm25_norm_map.get(idx, 0.0)
-        dpr_s = dpr_norm_map.get(idx, 0.0)
-        hybrid_s = alpha_bm25 * bm25_s + (1.0 - alpha_bm25) * dpr_s
-        pid = id_by_idx.get(idx, ids[idx] if 0 <= idx < len(ids) else None)
-        hybrid_results.append({
-            "idx": int(idx),
             "id": pid,
-            "bm25_norm": bm25_s,
-            "dpr_norm": dpr_s,
-            "hybrid_score": hybrid_s,
+            "grade": m.get("grade"),
+            "subject": m.get("subject"),
+            "chapter": m.get("chapter"),
+            "score": float(dist),
+            "text": text
         })
-
-    # Sort by hybrid_score descending
-    hybrid_results.sort(key=lambda r: -r["hybrid_score"])
-
-    # Add ranks and cut to topk_hybrid
-    for rank, r in enumerate(hybrid_results[:topk_hybrid], start=1):
-        r["rank"] = rank
-
-    return bm25_results, dpr_results, hybrid_results[:topk_hybrid]
+    return results
 
 
-def print_results(query, bm25_res, dpr_res, hybrid_res, id2rec, id_by_idx, max_snip_len=200):
-    print("\n============================================================")
+# ---------- hybrid scoring ----------
+def hybrid_merge(bm25_res, dpr_res, alpha: float = 0.5, topk: int = 10):
+    bm25_scores = {r["id"]: r["score"] for r in bm25_res}
+    dpr_scores = {r["id"]: r["score"] for r in dpr_res}
+
+    def norm_scores(score_dict):
+        if not score_dict:
+            return {}
+        vals = np.array(list(score_dict.values()), dtype="float32")
+        vmin, vmax = float(vals.min()), float(vals.max())
+        if vmax <= vmin:
+            return {k: 1.0 for k in score_dict}
+        return {k: (v - vmin) / (vmax - vmin) for k, v in score_dict.items()}
+
+    bm25_norm = norm_scores(bm25_scores)
+    dpr_norm = norm_scores(dpr_scores)
+
+    all_ids = set(bm25_scores.keys()) | set(dpr_scores.keys())
+    merged = []
+    for pid in all_ids:
+        b = bm25_norm.get(pid, 0.0)
+        d = dpr_norm.get(pid, 0.0)
+        h = alpha * b + (1 - alpha) * d
+        merged.append((pid, h, b, d))
+
+    merged.sort(key=lambda x: x[1], reverse=True)
+    return merged[:topk]
+
+
+# ---------- pretty printing ----------
+def print_results(query, bm25_res, dpr_res, hybrid_res, id2rec_bm25, id2meta, alpha):
+    print("=" * 60)
     print(f"Query: {query}")
-    print("============================================================\n")
+    print("=" * 60)
 
-    print("Top BM25 results:")
-    for r in bm25_res[:5]:
-        obj = id2rec.get(r["id"], {})
-        txt = obj.get("text", "")
-        snip = txt[:max_snip_len].replace("\n", " ")
+    print("\nTop BM25 results:")
+    for r in bm25_res:
         print(f"  [{r['rank']}] {r['id']}  score={r['score']:.3f}")
-        print(f"      {snip}")
-    print()
+        print(f"      {r['text']}\n")
 
-    print("Top DPR results:")
-    for r in dpr_res[:5]:
-        pid = id_by_idx.get(r["idx"])
-        obj = id2rec.get(pid, {})
-        txt = obj.get("text", "")
-        snip = txt[:max_snip_len].replace("\n", " ")
-        print(f"  [{r['rank']}] {pid}  score={r['score']:.3f}")
-        print(f"      {snip}")
-    print()
+    print("Top DPR (fine-tuned) results:")
+    for r in dpr_res:
+        print(f"  [{r['rank']}] {r['id']}  score={r['score']:.3f}")
+        print(f"      {r['text']}\n")
 
-    print("Top HYBRID results (BM25 + DPR):")
-    for r in hybrid_res:
-        obj = id2rec.get(r["id"], {})
-        txt = obj.get("text", "")
-        snip = txt[:max_snip_len].replace("\n", " ")
-        print(f"  [{r['rank']}] {r['id']}  hybrid={r['hybrid_score']:.3f}  "
-              f"(bm25={r['bm25_norm']:.3f}, dpr={r['dpr_norm']:.3f})")
-        print(f"      {snip}")
-    print()
+    print(f"Top HYBRID results (alpha={alpha:.2f} BM25, {1-alpha:.2f} DPR):")
+    for rank, (pid, h, b, d) in enumerate(hybrid_res, start=1):
+        meta = id2meta.get(pid, {})
+        rec = id2rec_bm25.get(pid, {})
+        text = rec.get("text", "")[:400]
+
+        print(f"  [{rank}] {pid}  hybrid={h:.3f}  (bm25={b:.3f}, dpr={d:.3f})")
+        print(f"      grade={meta.get('grade')}, subject={meta.get('subject')}, chapter={meta.get('chapter')}")
+        print(f"      {text}\n")
 
 
+# ---------- CLI ----------
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--query", type=str, help="Single query to run.")
-    parser.add_argument("--interactive", action="store_true", help="Interactive mode.")
-    parser.add_argument("--alpha", type=float, default=ALPHA_BM25, help="BM25 weight in hybrid score (0-1).")
-    parser.add_argument("--index-type", type=str, choices=["flat", "ivf", "hnsw"], default="flat",
-                        help="Which FAISS DPR index to use.")
+    parser.add_argument("--query", type=str, help="Single query to test. If not provided, runs an interactive loop.")
+    parser.add_argument("--k_bm25", type=int, default=5)
+    parser.add_argument("--k_dpr", type=int, default=5)
+    parser.add_argument("--k_hybrid", type=int, default=10)
+    parser.add_argument("--alpha", type=float, default=0.5, help="Weight for BM25 in hybrid fusion (0..1)")
     args = parser.parse_args()
 
-    # Adjust FAISS index path based on index-type
-    index_file = {
-        "flat": DPR_FAISS_FLAT,
-        "ivf": DPR_FAISS_IVF,
-        "hnsw": DPR_FAISS_HNSW,
-    }[args.index_type]
+    # Load BM25 (robust)
+    bm25, corpus_tokens, records, id2rec = load_bm25(BM25_PKL)
 
-    print("Loading passages map...")
-    id2rec = load_passages_map(PASSAGES_JSONL)
+    # Load DPR fine-tuned components
+    dpr_model, dpr_index, id2meta = load_ft_dpr(DPR_MODEL_DIR, DPR_INDEX_PATH, DPR_META_PATH)
 
-    print("Loading BM25 index...")
-    ids, tokenized_corpus, bm25 = load_bm25(BM25_PKL)
-    print("BM25 loaded with", len(ids), "documents.")
+    def run_one(q: str):
+        bm25_res = bm25_search(q, bm25, corpus_tokens, records, topk=args.k_bm25)
+        dpr_res = dpr_search(q, dpr_model, dpr_index, id2meta, id2rec, topk=args.k_dpr)
+        hybrid = hybrid_merge(bm25_res, dpr_res, alpha=args.alpha, topk=args.k_hybrid)
+        print_results(q, bm25_res, dpr_res, hybrid, id2rec, id2meta, args.alpha)
 
-    print("Loading DPR embeddings meta...")
-    embs, meta, id_by_idx = load_dpr()
-    print("DPR meta entries:", len(meta))
-
-    print("Loading FAISS index:", index_file)
-    faiss_index = load_faiss_index(index_file)
-
-    print("Loading DPR query encoder:", DPR_MODEL_NAME)
-    encoder = build_query_encoder()
-
-    def run_one(q):
-        bm25_res, dpr_res, hybrid_res = hybrid_search(
-            q,
-            ids,
-            bm25,
-            encoder,
-            faiss_index,
-            id_by_idx,
-            alpha_bm25=args.alpha,
-        )
-        print_results(q, bm25_res, dpr_res, hybrid_res, id2rec, id_by_idx)
-
-    if args.interactive:
+    if args.query:
+        run_one(args.query)
+    else:
+        print("Enter queries (blank line to exit):")
         while True:
-            q = input("\nEnter query (or 'exit'): ").strip()
-            if not q or q.lower() in ("exit", "quit"):
+            try:
+                q = input("\nQuery> ").strip()
+            except (EOFError, KeyboardInterrupt):
+                break
+            if not q:
                 break
             run_one(q)
-    else:
-        if not args.query:
-            print("No query provided. Use --query or --interactive.")
-            return
-        run_one(args.query)
 
 
 if __name__ == "__main__":
