@@ -33,3 +33,4 @@ Retrieval/dpr/passages_dpr_embs.npy
 # Logs
 *.log
 .zshrc
+.zshrc
