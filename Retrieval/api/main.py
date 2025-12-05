@@ -29,6 +29,10 @@ Uses:
 from pathlib import Path
 from typing import List, Optional, Dict, Any
 from quiz import router as quiz_router
+# near other includes
+from student import router as student_router
+
+
 
 
 
@@ -48,6 +52,7 @@ PASSAGES_JSONL = PROJECT_ROOT / "Preprocessing" / "NCERT_passages_hybrid" / "pas
 # ---------- FastAPI app ----------
 app = FastAPI(title="EduNiti NCERT Retrieval API (BM25)")
 app.include_router(quiz_router, prefix="/quiz", tags=["quiz"])
+app.include_router(student_router, prefix="/student", tags=["student"])
 
 bm25: BM25Okapi | None = None
 corpus_tokens: List[List[str]] = []

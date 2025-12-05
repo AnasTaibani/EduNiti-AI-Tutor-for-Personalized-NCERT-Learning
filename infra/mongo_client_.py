@@ -187,3 +187,31 @@ def list_mastery_by_student(student_id: str, db=None) -> List[Dict[str, Any]]:
     col = _mastery_collection(db)
     docs = list(col.find({"student_id": student_id}, {"_id": 0}).sort("last_updated", -1))
     return docs
+
+def get_recommendations_by_student(student_id: str, n: int = 3, grade: Optional[str] = None, subject: Optional[str] = None, db=None):
+    """Return a list of {concept_id, p_mastery, example_questions} for top-n lowest mastery."""
+    database = db if db is not None else get_db()
+    mastery_docs = list(database["mastery"].find({"student_id": student_id}, {"_id": 0}))
+    mastery_map = {d["concept_id"]: float(d.get("p_mastery", 0.05)) for d in mastery_docs}
+
+    query = {}
+    if grade:
+        query["grade"] = grade
+    if subject:
+        query["subject"] = subject
+
+    concepts = list(database["concepts"].find(query, {"_id": 0, "concept_id": 1, "example_questions": 1}))
+    DEFAULT_PRIOR = 0.05
+    if not concepts:
+        # fallback to mastery_map
+        items = sorted(mastery_map.items(), key=lambda kv: kv[1])[:n]
+        return [{"concept_id": k, "p_mastery": v, "example_questions": []} for k, v in items]
+
+    scored = []
+    for c in concepts:
+        cid = c["concept_id"]
+        p = mastery_map.get(cid, DEFAULT_PRIOR)
+        scored.append((cid, p, c.get("example_questions", [])))
+    scored_sorted = sorted(scored, key=lambda t: t[1])[:n]
+    return [{"concept_id": cid, "p_mastery": p, "example_questions": eqs or []} for cid, p, eqs in scored_sorted]
+
