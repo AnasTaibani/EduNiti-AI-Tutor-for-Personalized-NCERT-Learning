@@ -235,7 +235,7 @@ def main():
         chapter=args.chapter,
         language=args.language,
         top_k=args.top_k,
-        bm25_k=args.bm25_k,
+        bm25_candidates=args.bm25_k,
     )
 
     print("\n=== RETRIEVED PASSAGES (FINAL) ===\n")

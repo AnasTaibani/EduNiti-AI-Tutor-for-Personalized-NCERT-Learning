@@ -24,6 +24,7 @@ from __future__ import annotations
 import os
 from typing import Optional, Dict, Any, List
 from datetime import datetime
+from huggingface_hub import get_collection
 from pymongo import MongoClient, errors
 from pymongo.collection import Collection
 
@@ -94,6 +95,38 @@ def get_mastery(student_id: str, concept_id: str, db=None) -> Optional[Dict[str,
     doc = col.find_one({"student_id": student_id, "concept_id": concept_id}, {"_id": 0})
     return doc
 
+def get_db_client():
+    """Return a new MongoClient instance (caller should close it)."""
+    return MongoClient(MONGO_URI, serverSelectionTimeoutMS=10000)
+
+
+def _get_collections(client):
+    db = client[DEFAULT_DB]
+    return {
+        "quiz_logs": db["quiz_logs"],
+        "mastery": db["mastery"],
+    }
+
+
+def log_quiz_attempt(attempt_doc: Dict[str, Any], client: Optional[MongoClient] = None):
+    """
+    Insert a quiz attempt. If client not provided, create one and close.
+    Returns the inserted_id.
+    """
+    close_after = False
+    if client is None:
+        client = get_db_client()
+        close_after = True
+    try:
+        cols = _get_collections(client)
+        res = cols["quiz_logs"].insert_one(attempt_doc)
+        return res.inserted_id
+    finally:
+        if close_after:
+            client.close()
+
+
+
 
 def set_mastery(student_id: str, concept_id: str, p_mastery: float,
                 meta: Optional[Dict[str, Any]] = None,
@@ -113,14 +146,14 @@ def set_mastery(student_id: str, concept_id: str, p_mastery: float,
     col = _mastery_collection(db)
     now = datetime.utcnow()
 
+    # history entry conforms to DB validator: ts and p_mastery required
     history_entry = {
-        "at": now,
-        "p": float(p_mastery),
+        "ts": now,
+        "p_mastery": float(p_mastery),
     }
     if source:
         history_entry["source"] = source
     if meta:
-        # store meta snapshot in history if provided
         history_entry["meta"] = meta
 
     update = {
